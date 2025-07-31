@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
         if(!token) return res.status(400).json({msg: "There is no access"})
 
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if(err) return res.status(400).json("Invalid / expired token")
+            if(err) return res.status(400).json({msg: "Invalid / expired token"})
             req.user = decoded
             next()
         })
