@@ -42,7 +42,7 @@ const AppSidebar = () => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 flex h-screen flex-col bg-white px-5 transition-all duration-300 ease-in-out z-40 border-r border-gray-200
+      className={`fixed top-0 left-0 z-50 flex h-screen flex-col border-r border-gray-200 bg-white px-5 transition-all duration-300 ease-in-out
         ${isExpanded || isMobileOpen ? 'w-[290px]' : isHovered ? 'w-[290px]' : 'w-[90px]'}
         ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0
       `}
@@ -52,12 +52,12 @@ const AppSidebar = () => {
       <div className={`flex h-16 items-center border-b border-gray-200 
         ${!isExpanded && !isHovered ? 'lg:justify-center' : 'justify-start'}
       `}>
-        <Link to="/" className="font-bold text-xl text-brand-500">
+        <Link to="/" className="text-xl font-bold text-brand-500">
           {(isExpanded || isHovered || isMobileOpen) ? 'KSOP Admin' : 'K'}
         </Link>
       </div>
 
-      <div className="flex flex-col overflow-y-auto no-scrollbar flex-grow py-8">
+      <div className="flex flex-grow flex-col overflow-y-auto no-scrollbar py-8">
         <nav className="flex-grow">
           <h2 className={`mb-4 text-xs uppercase text-gray-400 
             ${!isExpanded && !isHovered ? 'lg:text-center' : 'pl-4'}

@@ -23,7 +23,6 @@ const OutgoingLetterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit logic here
     console.log(form);
   };
 
@@ -131,4 +130,5 @@ const OutgoingLetterForm = () => {
   );
 };
 
+export default OutgoingLetterForm;
 export default OutgoingLetterForm;

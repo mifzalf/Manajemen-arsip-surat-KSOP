@@ -16,7 +16,8 @@ const LayoutContent = () => {
       </div>
 
       <div
-        className={`flex-1 transition-all duration-300 ease-in-out ${
+        // TAMBAHKAN 'overflow-x-hidden' DI SINI
+        className={`flex-1 overflow-x-hidden transition-all duration-300 ease-in-out ${
           isExpanded || isHovered ? 'lg:ml-[290px]' : 'lg:ml-[90px]'
         } ${isMobileOpen ? 'ml-0' : ''}`}
       >

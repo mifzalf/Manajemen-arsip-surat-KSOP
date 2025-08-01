@@ -7,10 +7,8 @@ const Archives = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Fetch letters data from an API or local storage
     const fetchLetters = async () => {
-      // Replace with your data fetching logic
-      const response = await fetch('/api/letters'); // Example API endpoint
+      const response = await fetch('/api/letters');
       const data = await response.json();
       setLetters(data);
     };
