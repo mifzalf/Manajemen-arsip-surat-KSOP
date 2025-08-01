@@ -8,7 +8,6 @@ const notifications = [
   { id: 2, user: 'Alena Franci', image: '/images/user/user-03.jpg', time: '8 min ago' },
 ];
 
-// Pastikan Anda menggunakan "export default" di sini
 export default function NotificationDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);

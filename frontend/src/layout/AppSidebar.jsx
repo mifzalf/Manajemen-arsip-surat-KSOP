@@ -2,12 +2,20 @@ import React, { useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSidebar } from '../context/SidebarContext';
 import SidebarWidget from '../components/SidebarWidget';
+// 1. Impor ikon dari file ikon Anda
+import {
+  GridIcon,
+  EnvelopeIcon,
+  PaperPlaneIcon,
+  FolderIcon,
+} from '../icons'; // Pastikan path ini benar
 
+// 2. Ganti emoji dengan komponen Ikon
 const navItems = [
-  { name: 'Dashboard', path: '/', icon: <span>🏠</span> },
-  { name: 'Surat Masuk', path: '/incoming-letters', icon: <span>📥</span> },
-  { name: 'Surat Keluar', path: '/outgoing-letters', icon: <span>📤</span> },
-  { name: 'Arsip', path: '/archives', icon: <span>🗄️</span> },
+  { name: 'Dashboard', path: '/', icon: <GridIcon className="h-6 w-6" /> },
+  { name: 'Surat Masuk', path: '/incoming-letters', icon: <EnvelopeIcon className="h-6 w-6" /> },
+  { name: 'Surat Keluar', path: '/outgoing-letters', icon: <PaperPlaneIcon className="h-6 w-6" /> },
+  { name: 'Arsip', path: '/archives', icon: <FolderIcon className="h-6 w-6" /> },
 ];
 
 const AppSidebar = () => {
@@ -30,7 +38,8 @@ const AppSidebar = () => {
               ${!isExpanded && !isHovered ? 'lg:justify-center' : 'lg:justify-start'}
             `}
           >
-            <span className="text-lg">{nav.icon}</span>
+            {/* 3. Hapus className="text-lg" agar ukuran ikon konsisten */}
+            <span>{nav.icon}</span>
             {(isExpanded || isHovered || isMobileOpen) && (
               <span className="truncate">{nav.name}</span>
             )}

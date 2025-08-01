@@ -3,7 +3,7 @@ const Navbar = () => (
     <div className="flex-1 flex items-center justify-between">
       <span className="text-lg font-semibold text-gray-800 dark:text-white/90">Dashboard KSOP</span>
       <div className="flex items-center gap-4">
-        {/* Add notification/user dropdown here if needed */}
+        {}
         <span className="text-sm text-gray-500 dark:text-gray-400">Admin</span>
       </div>
     </div>

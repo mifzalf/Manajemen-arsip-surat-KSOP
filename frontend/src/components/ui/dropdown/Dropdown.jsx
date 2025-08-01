@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-// Pastikan Anda menggunakan "export const" di sini, bukan "export default"
-export const Dropdown = ({ isOpen, onClose, className, children }) => {
+export const Dropdown = ({ isOpen, onClose, className, children, triggerRef }) => { // 1. Terima triggerRef
   const dropdownRef = useRef(null);
 
-  // Menutup dropdown jika klik di luar area dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      // 2. Tambahkan pengecekan agar tidak menutup jika tombol trigger yang diklik
+      if (
+        dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+        triggerRef.current && !triggerRef.current.contains(event.target)
+      ) {
         onClose();
       }
     };
@@ -19,7 +21,7 @@ export const Dropdown = ({ isOpen, onClose, className, children }) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, triggerRef]);
 
   if (!isOpen) {
     return null;
@@ -37,4 +39,5 @@ Dropdown.propTypes = {
   onClose: PropTypes.func.isRequired,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  triggerRef: PropTypes.object, // 3. Tambahkan prop validation
 };

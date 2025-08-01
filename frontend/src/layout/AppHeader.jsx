@@ -1,12 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSidebar } from '../context/SidebarContext';
-import NotificationDropdown from '../components/header/NotificationDropdown'; 
 import UserDropdown from '../components/header/UserDropdown';
 
 const AppHeader = () => {
   const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
-  const inputRef = useRef(null);
 
   const handleToggle = () => {
     if (window.innerWidth >= 1024) {
@@ -16,25 +14,12 @@ const AppHeader = () => {
     }
   };
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
-        event.preventDefault();
-        inputRef.current?.focus();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
   return (
     <header className="sticky top-0 z-30 flex w-full border-gray-200 bg-white lg:border-b">
       <div className="flex grow flex-col items-center justify-between lg:flex-row lg:px-6">
         <div className="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 sm:gap-4 lg:justify-normal lg:border-b-0 lg:px-0 lg:py-4">
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 lg:h-11 lg:w-11 lg:border"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 hover:bg-gray-50 lg:h-11 lg:w-11"
             onClick={handleToggle}
             aria-label="Toggle Sidebar"
           >
@@ -49,18 +34,10 @@ const AppHeader = () => {
             <span className="text-xl font-bold">KSOP</span>
           </Link>
           
-          <div className="hidden lg:block">
-            <div className="relative">
-              <input ref={inputRef} type="text" placeholder="Search (Ctrl+K)" className="h-11 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-10 pr-14 text-sm focus:border-brand-300 focus:outline-none focus:ring-1 focus:ring-brand-500/10 xl:w-[430px]" />
-              <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500">
-                <span>⌘</span><span>K</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         <div className="flex items-center justify-end gap-4 px-5 py-4 lg:flex">
-          <NotificationDropdown />
+          {/* <NotificationDropdown />  <-- Komponen ini dihapus */}
           <UserDropdown />
         </div>
       </div>

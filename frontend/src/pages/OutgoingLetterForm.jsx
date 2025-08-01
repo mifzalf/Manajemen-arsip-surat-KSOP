@@ -131,4 +131,3 @@ const OutgoingLetterForm = () => {
 };
 
 export default OutgoingLetterForm;
-export default OutgoingLetterForm;

@@ -29,7 +29,7 @@ const Sidebar = () => {
                       : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5"}
                   `}
                 >
-                  {/* Highlight bar for active menu */}
+                  {}
                   <span
                     className={`absolute left-0 top-2 bottom-2 w-1 rounded bg-brand-500 transition-all duration-200 ${
                       active ? "opacity-100" : "opacity-0 group-hover:opacity-40"
