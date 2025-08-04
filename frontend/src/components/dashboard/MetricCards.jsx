@@ -1,29 +1,26 @@
 import React from 'react';
-// Komponen Badge tidak lagi dibutuhkan di file ini
 import { 
   EnvelopeIcon, 
   PaperPlaneIcon, 
   FolderIcon,
-} from '../../icons'; // Arrow icons tidak lagi dibutuhkan
-
-// 1. Data diubah untuk merefleksikan "surat hari ini"
+} from '../../icons';
 const stats = [
   { 
     label: "Surat Masuk", 
     value: 120, 
-    today: 20, // Data baru: jumlah surat hari ini
+    today: 20,
     icon: <EnvelopeIcon className="h-6 w-6 text-gray-800" /> 
   },
   { 
     label: "Surat Keluar", 
     value: 80, 
-    today: 15, // Data baru: jumlah surat hari ini
+    today: 15,
     icon: <PaperPlaneIcon className="h-6 w-6 text-gray-800" />
   },
   { 
     label: "Arsip", 
     value: 200, 
-    today: 5, // Data baru: jumlah surat hari ini
+    today: 5,
     icon: <FolderIcon className="h-6 w-6 text-gray-800" />
   },
 ];

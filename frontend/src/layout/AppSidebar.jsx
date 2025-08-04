@@ -2,15 +2,13 @@ import React, { useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSidebar } from '../context/SidebarContext';
 import SidebarWidget from '../components/SidebarWidget';
-// 1. Impor ikon dari file ikon Anda
 import {
   GridIcon,
   EnvelopeIcon,
   PaperPlaneIcon,
   FolderIcon,
-} from '../icons'; // Pastikan path ini benar
+} from '../icons';
 
-// 2. Ganti emoji dengan komponen Ikon
 const navItems = [
   { name: 'Dashboard', path: '/', icon: <GridIcon className="h-6 w-6" /> },
   { name: 'Surat Masuk', path: '/incoming-letters', icon: <EnvelopeIcon className="h-6 w-6" /> },
@@ -38,7 +36,6 @@ const AppSidebar = () => {
               ${!isExpanded && !isHovered ? 'lg:justify-center' : 'lg:justify-start'}
             `}
           >
-            {/* 3. Hapus className="text-lg" agar ukuran ikon konsisten */}
             <span>{nav.icon}</span>
             {(isExpanded || isHovered || isMobileOpen) && (
               <span className="truncate">{nav.name}</span>
@@ -58,11 +55,18 @@ const AppSidebar = () => {
       onMouseEnter={() => !isExpanded && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`flex h-16 items-center border-b border-gray-200 
-        ${!isExpanded && !isHovered ? 'lg:justify-center' : 'justify-start'}
-      `}>
-        <Link to="/" className="text-xl font-bold text-brand-500">
-          {(isExpanded || isHovered || isMobileOpen) ? 'KSOP Admin' : 'K'}
+      <div className="flex h-16 items-center justify-center border-b border-gray-200">
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/images/logo/kementrianperhubungan.png"
+            alt="KSOP Logo"
+            className="h-12 w-auto"
+          />
+          {(isExpanded || isHovered || isMobileOpen) && (
+            <span className="text-xl font-bold text-gray-800">
+              KSOP-K
+            </span>
+          )}
         </Link>
       </div>
 

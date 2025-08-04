@@ -2,7 +2,6 @@ import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement, Tooltip, Legend } from "chart.js";
 import MetricCards from '../components/dashboard/MetricCards';
 import MonthlyLettersBarChart from '../components/dashboard/MonthlyLettersBarChart';
-// 1. Impor komponen Doughnut chart yang baru
 import LetterDistributionDoughnutChart from '../components/dashboard/LetterDistributionDoughnutChart';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement, Tooltip, Legend);
@@ -22,7 +21,7 @@ const Dashboard = () => {
         </div>
 
         <div className="col-span-12 lg:col-span-4">
-          {/* 2. Ganti Line chart dengan Doughnut chart */}
+          {}
           <LetterDistributionDoughnutChart />
         </div>
       </div>

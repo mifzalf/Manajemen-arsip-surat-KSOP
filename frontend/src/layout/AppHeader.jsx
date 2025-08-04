@@ -31,13 +31,12 @@ const AppHeader = () => {
           </button>
           
           <Link to="/" className="lg:hidden">
-            <span className="text-xl font-bold">KSOP</span>
+            <span className="text-xl font-bold">KSOP-K</span>
           </Link>
           
         </div>
 
-        <div className="flex items-center justify-end gap-4 px-5 py-4 lg:flex">
-          {/* <NotificationDropdown />  <-- Komponen ini dihapus */}
+        <div className="relative flex items-center justify-end gap-4 px-5 py-4 lg:flex">
           <UserDropdown />
         </div>
       </div>
