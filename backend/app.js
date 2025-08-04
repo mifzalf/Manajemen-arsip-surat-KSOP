@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 (async() => {
-  await db.sync({force: true})
+  // await db.sync({force: true})
   await connectDB()
 })()
 
