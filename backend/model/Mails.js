@@ -31,8 +31,8 @@ const Mails = db.define("mail", {
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
     },
-    mail_date: DataTypes.DATE,
-    received_date: DataTypes.DATE,
+    mail_date: DataTypes.DATEONLY,
+    received_date: DataTypes.DATEONLY,
     mail_summary: DataTypes.TEXT,
     classification_id: {
         type: DataTypes.INTEGER,

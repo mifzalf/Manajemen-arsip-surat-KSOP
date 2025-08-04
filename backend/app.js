@@ -9,6 +9,7 @@ const {Classifications, Users, Mails} = require(`./model/Association`)
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mailRouter = require('./routes/mail');
+var classificationRouter = require('./routes/classification')
 
 var {db, connectDB} = require(`./config/db`)
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mail', mailRouter);
+app.use('/classification', classificationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
