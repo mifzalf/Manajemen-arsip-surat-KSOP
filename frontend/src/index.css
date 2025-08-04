@@ -44,4 +44,10 @@ button:hover {
 
 .main-content {
   @apply flex-1 p-6;
+}.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }

@@ -16,6 +16,7 @@ const LayoutContent = () => {
       </div>
 
       <div
+        // Pastikan kelas transisi ini ada untuk animasi yang mulus
         className={`flex-1 overflow-x-hidden transition-all duration-300 ease-in-out ${
           isExpanded || isHovered ? 'lg:ml-[290px]' : 'lg:ml-[90px]'
         } ${isMobileOpen ? 'ml-0' : ''}`}
