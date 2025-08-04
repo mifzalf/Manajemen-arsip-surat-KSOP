@@ -19,7 +19,7 @@ button {
 }
 
 button:hover {
-  @apply bg-blue-600;
+  @apply bg-blue-200;
 }
 
 .table {
