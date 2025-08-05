@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Dropdown } from './ui/dropdown/Dropdown';
 import { DropdownItem } from './ui/dropdown/DropdownItem';
 import { MoreDotIcon } from '../icons';
 
-const ActionDropdown = ({ onEdit, onDelete }) => {
+const ActionDropdown = ({ letter, onEdit, onDelete, detailPagePath }) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef(null);
 
@@ -12,9 +13,9 @@ const ActionDropdown = ({ onEdit, onDelete }) => {
       <button 
         ref={triggerRef} 
         onClick={() => setIsOpen(!isOpen)}
-        className=" bg-white shadow-sm hover:bg-gray-50"
+        className=" border-gray-200 bg-white shadow-sm hover:bg-gray-50"
       >
-        <MoreDotIcon className="h-6 w-6 text-gray-500 hover:text-gray-800" />
+        <MoreDotIcon className="h-5 w-5 text-gray-500" />
       </button>
       <Dropdown
         isOpen={isOpen}
@@ -22,9 +23,9 @@ const ActionDropdown = ({ onEdit, onDelete }) => {
         triggerRef={triggerRef}
         className="absolute right-0 top-full z-10 mt-1 flex w-40 flex-col rounded-lg border bg-white p-2 shadow-lg"
       >
-        <DropdownItem onItemClick={() => { alert('View More'); setIsOpen(false); }} className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100">
+        <Link to={`${detailPagePath}/${letter.id}`} className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100">
           View More
-        </DropdownItem>
+        </Link>
         <DropdownItem onItemClick={() => { onEdit(); setIsOpen(false); }} className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100">
           Edit
         </DropdownItem>
@@ -36,7 +37,7 @@ const ActionDropdown = ({ onEdit, onDelete }) => {
   );
 };
 
-const LetterTable = ({ letters = [] }) => (
+const LetterTable = ({ letters = [], detailPagePath }) => (
   <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="bg-gray-50">
@@ -61,8 +62,10 @@ const LetterTable = ({ letters = [] }) => (
             <td className="px-6 py-4">{letter.remarks}</td>
             <td className="px-6 py-4 flex justify-end">
               <ActionDropdown 
+                letter={letter}
                 onEdit={() => alert(`Edit item ${letter.id}`)}
                 onDelete={() => alert(`Delete item ${letter.id}`)}
+                detailPagePath={detailPagePath}
               />
             </td>
           </tr>

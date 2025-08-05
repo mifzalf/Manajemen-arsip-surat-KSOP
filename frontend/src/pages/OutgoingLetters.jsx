@@ -36,7 +36,7 @@ const OutgoingLetters = () => {
       </div>
 
       <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-5">
+        <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Cari surat keluar..."/>
           <FilterDropdown
             options={classificationOptions}
@@ -44,7 +44,7 @@ const OutgoingLetters = () => {
             setSelectedValue={setSelectedClassification}
           />
         </div>
-        <LetterTable letters={filteredLetters} />
+        <LetterTable letters={filteredLetters} detailPagePath="/outgoing-letters" />
       </div>
     </div>
   );
