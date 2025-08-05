@@ -10,7 +10,7 @@ const Mails = db.define("mail", {
         autoIncrement: true
     },
     mail_number: DataTypes.STRING,
-    mail_type: DataTypes.ENUM("masuk, keluar"),
+    mail_type: DataTypes.ENUM("masuk", "keluar"),
     sender_name: DataTypes.STRING,
     recipient_name: DataTypes.STRING,
     sender_id: {
