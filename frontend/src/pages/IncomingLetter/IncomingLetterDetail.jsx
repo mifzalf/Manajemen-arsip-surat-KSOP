@@ -1,20 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
-
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker?url';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 const dummyLetters = [
-  { id: 1, number: '001/IN/2024', classification: 'Penting', letterDate: '2024-06-01', entryDate: '2024-06-02', notes: 'Surat undangan rapat koordinasi', remarks: 'Segera proses', file: 'sample.pdf' },
-  { id: 2, number: '002/IN/2024', classification: 'Biasa', letterDate: '2024-06-03', entryDate: '2024-06-03', notes: 'Laporan bulanan cabang', remarks: '-', file: 'sample.pdf' },
+  { id: 1, agendaId: 'AGD-001', sender: 'PT. Sejahtera Abadi', letterNumber: '123/SA/VI/2024', letterDate: '2024-06-01', receivedDate: '2024-06-02', summary: 'Surat undangan rapat koordinasi', classification: 'Penting', remarks: 'Segera proses', file: 'sample.pdf' },
+  { id: 2, agendaId: 'AGD-002', sender: 'Cabang Utama Surabaya', letterNumber: 'CU-SBY/L/VI/2024', letterDate: '2024-06-03', receivedDate: '2024-06-03', summary: 'Laporan bulanan cabang', classification: 'Biasa', remarks: '-', file: 'sample.pdf' },
 ];
 
 const DetailItem = ({ label, value }) => (
-  <div>
+  <div className="break-words">
     <p className="text-sm text-gray-500">{label}</p>
     <p className="font-medium text-gray-800">{value || '-'}</p>
   </div>
@@ -23,12 +22,11 @@ const DetailItem = ({ label, value }) => (
 const IncomingLetterDetail = () => {
   const { id } = useParams();
   const letter = dummyLetters.find(l => l.id.toString() === id);
-  const [numPages, setNumPages] = useState(null);
-  
-  const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [numPages, setNumPages] = React.useState(null);
+  const [containerWidth, setContainerWidth] = React.useState(0);
+  const containerRef = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new ResizeObserver(entries => {
       const entry = entries[0];
       if (entry) {
@@ -69,7 +67,7 @@ const IncomingLetterDetail = () => {
           <Link to="/incoming-letters" className="text-sm text-gray-500 hover:text-brand-500">
             &larr; Kembali ke Surat Masuk
           </Link>
-          <h1 className="text-xl font-bold text-gray-800 sm:text-2xl">Detail Surat: {letter.number}</h1>
+          <h1 className="text-xl font-bold text-gray-800 sm:text-2xl">Detail Surat: {letter.letterNumber}</h1>
         </div>
         <a 
           href={fileUrl} 
@@ -82,13 +80,14 @@ const IncomingLetterDetail = () => {
 
       <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-5">
         <h3 className="mb-4 text-lg font-semibold text-gray-800">Detail</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <DetailItem label="Nomor Surat" value={letter.number} />
+        <div className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+          <DetailItem label="Nomor Surat" value={letter.letterNumber} />
+          <DetailItem label="Pengirim" value={letter.sender} />
           <DetailItem label="Klasifikasi" value={letter.classification} />
           <DetailItem label="Tanggal Surat" value={letter.letterDate} />
-          <DetailItem label="Tanggal Masuk" value={letter.entryDate} />
-          <DetailItem label="Catatan" value={letter.notes} />
-          <DetailItem label="Keterangan" value={letter.remarks} />
+          <DetailItem label="Tanggal Diterima" value={letter.receivedDate} />
+          <DetailItem label="Ringkasan Isi" value={letter.summary} />
+          <DetailItem label="Keterangan Tambahan" value={letter.remarks} />
         </div>
       </div>
 

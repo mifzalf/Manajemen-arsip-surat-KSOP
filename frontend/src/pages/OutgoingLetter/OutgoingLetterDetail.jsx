@@ -9,8 +9,8 @@ import pdfjsWorker from 'pdfjs-dist/build/pdf.worker?url';
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 const dummyLetters = [
-    { id: 1, number: '001/OUT/2024', classification: 'Penting', letterDate: '2024-06-10', notes: 'Pengiriman proposal kerja sama', remarks: 'Menunggu balasan', file: 'sample.pdf'},
-    { id: 2, number: '002/OUT/2024', classification: 'Biasa', letterDate: '2024-06-11', notes: 'Surat pemberitahuan internal', remarks: 'Terkirim', file: 'sample.pdf'},
+    { id: 1, number: '001/OUT/2024', classification: 'Penting', letterDate: '2024-06-10', notes: 'Pengiriman proposal kerja sama', remarks: 'Menunggu balasan', file: 'sample.pdf', tujuan: 'PT. Mitra Jaya'},
+    { id: 2, number: '002/OUT/2024', classification: 'Biasa', letterDate: '2024-06-11', notes: 'Surat pemberitahuan internal', remarks: 'Terkirim', file: 'sample.pdf', tujuan: 'Seluruh Staff'},
 ];
 
 const DetailItem = ({ label, value }) => (
@@ -84,9 +84,10 @@ const OutgoingLetterDetail = () => {
         <h3 className="mb-4 text-lg font-semibold text-gray-800">Detail</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <DetailItem label="Nomor Surat" value={letter.number} />
+          <DetailItem label="Tujuan" value={letter.tujuan} />
           <DetailItem label="Klasifikasi" value={letter.classification} />
           <DetailItem label="Tanggal Surat" value={letter.letterDate} />
-          <DetailItem label="Catatan" value={letter.notes} />
+          <DetailItem label="Ringkasan Isi" value={letter.notes} />
           <DetailItem label="Keterangan" value={letter.remarks} />
         </div>
       </div>

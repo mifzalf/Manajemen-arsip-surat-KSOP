@@ -10,7 +10,7 @@ import UserProfiles from "./pages/UserProfiles";
 import IncomingLetterDetail from "./pages/IncomingLetter/IncomingLetterDetail";
 import OutgoingLetterDetail from "./pages/OutgoingLetter/OutgoingLetterDetail";
 import SignIn from "./pages/AuthPages/SignIn";
-import Settings from "./pages/Settings"; // Impor halaman Settings
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -26,9 +26,8 @@ function App() {
           <Route path="/profile" element={<UserProfiles />} />
           <Route path="/incoming-letters/:id" element={<IncomingLetterDetail />} />
           <Route path="/outgoing-letters/:id" element={<OutgoingLetterDetail />} />
-          <Route path="/settings" element={<Settings />} /> {/* Tambahkan rute Settings */}
+          <Route path="/settings" element={<Settings />} /> 
         </Route>
-
         <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>

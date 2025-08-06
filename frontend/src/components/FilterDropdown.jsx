@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { ChevronDownIcon, CheckLineIcon } from '../icons';
 
-const FilterDropdown = ({ options, selectedValue, setSelectedValue }) => {
-  const selectedLabel = options.find(option => option === selectedValue) || 'Semua Klasifikasi';
+const FilterDropdown = ({ options, selectedValue, setSelectedValue, placeholder }) => {
+  const selectedLabel = options.find(option => option === selectedValue) || placeholder || 'Pilih Opsi';
 
   return (
     <Listbox value={selectedValue} onChange={setSelectedValue}>
@@ -26,19 +26,9 @@ const FilterDropdown = ({ options, selectedValue, setSelectedValue }) => {
               value=""
             >
               {({ selected }) => (
-                <>
-                  <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
-                    Semua Klasifikasi
-                  </span>
-                  {selected ? (
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-brand-600">
-                      <CheckLineIcon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                  ) : null}
-                </>
+                <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>{placeholder || 'Pilih Semua'}</span>
               )}
             </Listbox.Option>
-
             {options.map((option, optionIdx) => (
               <Listbox.Option
                 key={optionIdx}
@@ -47,14 +37,12 @@ const FilterDropdown = ({ options, selectedValue, setSelectedValue }) => {
               >
                 {({ selected }) => (
                   <>
-                    <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
-                      {option}
-                    </span>
-                    {selected ? (
+                    <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>{option}</span>
+                    {selected && (
                       <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-brand-600">
                         <CheckLineIcon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                    ) : null}
+                    )}
                   </>
                 )}
               </Listbox.Option>

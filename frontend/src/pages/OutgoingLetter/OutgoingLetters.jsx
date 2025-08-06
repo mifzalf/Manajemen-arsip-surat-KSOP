@@ -1,50 +1,36 @@
 import React, { useState, useMemo } from 'react';
-import ButtonGroup from '../../components/ButtonGroup';
+import { Link } from 'react-router-dom';
 import LetterTable from '../../components/LetterTable';
 import SearchBar from '../../components/SearchBar';
-import FilterDropdown from '../../components/FilterDropdown';
+import Button from '../../components/ui/Button';
 
 const dummyLetters = [
-  { id: 1, number: '001/OUT/2024', classification: 'Penting', letterDate: '2024-06-10', entryDate: '2024-06-10', notes: 'Pengiriman proposal kerja sama', remarks: 'Menunggu balasan'},
-  { id: 2, number: '002/OUT/2024', classification: 'Biasa', letterDate: '2024-06-11', entryDate: '2024-06-11', notes: 'Surat pemberitahuan internal', remarks: 'Terkirim'},
-  { id: 3, number: '003/OUT/2024', classification: 'Rahasia', letterDate: '2024-06-12', entryDate: '2024-06-12', notes: 'Dokumen penawaran tender', remarks: 'Terkirim'},
-  { id: 4, number: '004/OUT/2024', classification: 'Biasa', letterDate: '2024-06-13', entryDate: '2024-06-13', notes: 'Balasan permohonan data', remarks: 'Selesai'},
+  { id: 1, recipient: 'PT. Mitra Jaya', letterNumber: '001/P/KSOP-K/6/2024', letterDate: '2024-06-10', summary: 'Pengiriman proposal kerja sama', classification: 'Penting', remarks: 'Menunggu balasan'},
+  { id: 2, recipient: 'Seluruh Staff', letterNumber: '002/B/KSOP-K/6/2024', letterDate: '2024-06-11', summary: 'Surat pemberitahuan internal', classification: 'Biasa', remarks: 'Terkirim'},
 ];
-
-const classificationOptions = ['Penting', 'Biasa', 'Rahasia'];
 
 const OutgoingLetters = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedClassification, setSelectedClassification] = useState('');
 
   const filteredLetters = useMemo(() => {
-    return dummyLetters
-      .filter(letter => 
-        letter.number.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        letter.notes.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .filter(letter => 
-        selectedClassification ? letter.classification === selectedClassification : true
-      );
-  }, [searchTerm, selectedClassification]);
+    return dummyLetters.filter(letter => 
+      letter.letterNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      letter.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      letter.recipient.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-gray-800">Surat Keluar</h1>
-        <ButtonGroup to="/outgoing-letter-form" />
+        <Button to="/outgoing-letter-form">Tambah Surat Keluar</Button>
       </div>
-
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-        <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Cari surat keluar..."/>
-          <FilterDropdown
-            options={classificationOptions}
-            selectedValue={selectedClassification}
-            setSelectedValue={setSelectedClassification}
-          />
+      <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
+        <div className="border-b border-gray-200 p-4">
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Cari nomor surat, tujuan, ringkasan..." />
         </div>
-        <LetterTable letters={filteredLetters} detailPagePath="/outgoing-letters" />
+        <LetterTable letters={filteredLetters} detailPagePath="/outgoing-letters" showRecipientColumn={true} />
       </div>
     </div>
   );
