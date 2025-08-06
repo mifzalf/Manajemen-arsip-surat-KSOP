@@ -2,7 +2,14 @@ var express = require('express');
 var router = express.Router();
 const path = require('path')
 const verifyToken = require(`../middleware/jwt`)
-const { getMail, getMailByUser } = require(`../controller/mailController`)
+const { 
+    getMail,
+    getMailById, 
+    getMailByUser, 
+    storeMail,
+    updateMail, 
+    deleteMail 
+} = require(`../controller/mailController`)
 
 const multer = require('multer')
 
@@ -15,8 +22,9 @@ const storage = multer.diskStorage({
         }
     },
     filename: (req, file, cb) => {
-        const random = Math.floor(Math.random() * 9999 - 1000 + 1) + 1000
-        cb(null, `${random}${file.originalname}`)
+        const name = file.originalname.replace(/ /g, '+')
+        const random = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
+        cb(null, `${random}${name}`)
     }
 })
 
@@ -36,7 +44,10 @@ const upload = multer({storage, fileFilter})
 router.use(verifyToken)
 
 router.get(`/`, getMail)
+router.get(`/:id`, getMailById) 
 router.get(`/user`, getMailByUser)
-router.post(`/store-incoming`, upload.single('file'))
+router.post(`/store-mail`, upload.single('file'), storeMail)
+router.patch(`/update-mail/:id`, upload.single('file'), updateMail) 
+router.delete(`/delete-mail/:id`, deleteMail) 
 
 module.exports = router
