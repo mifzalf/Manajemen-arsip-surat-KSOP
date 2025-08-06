@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Label from '../components/form/Label';
-import InputField from '../components/form/InputField';
-import Select from '../components/form/Select';
-import TextArea from '../components/form/TextArea';
-import Button from '../components/ui/Button';
-import FileInput from '../components/form/FileInput';
+import Label from '../../components/form/Label';
+import InputField from '../../components/form/InputField';
+import Select from '../../components/form/Select';
+import TextArea from '../../components/form/TextArea';
+import Button from '../../components/ui/Button';
+import FileInput from '../../components/form/FileInput';
 
 const classificationOptions = [
   { value: '', label: 'Pilih Klasifikasi' },

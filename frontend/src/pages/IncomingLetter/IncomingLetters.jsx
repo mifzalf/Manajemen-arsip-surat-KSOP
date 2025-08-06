@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import ButtonGroup from '../components/ButtonGroup';
-import LetterTable from '../components/LetterTable';
-import SearchBar from '../components/SearchBar';
-import FilterDropdown from '../components/FilterDropdown';
+import ButtonGroup from '../../components/ButtonGroup';
+import LetterTable from '../../components/LetterTable';
+import SearchBar from '../../components/SearchBar';
+import FilterDropdown from '../../components/FilterDropdown';
 
 const dummyLetters = [
   { id: 1, number: '001/IN/2024', classification: 'Penting', letterDate: '2024-06-01', entryDate: '2024-06-02', notes: 'Surat undangan rapat koordinasi', remarks: 'Segera proses'},
