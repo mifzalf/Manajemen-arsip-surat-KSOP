@@ -9,13 +9,14 @@ import OutgoingLetterForm from "./pages/OutgoingLetterForm";
 import UserProfiles from "./pages/UserProfiles";
 import IncomingLetterDetail from "./pages/IncomingLetterDetail";
 import OutgoingLetterDetail from "./pages/OutgoingLetterDetail";
+import SignIn from "./pages/AuthPages/SignIn";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route index path="/" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/incoming-letters" element={<IncomingLetters />} />
           <Route path="/outgoing-letters" element={<OutgoingLetters />} />
           <Route path="/archives" element={<Archives />} />
@@ -25,6 +26,8 @@ function App() {
           <Route path="/incoming-letters/:id" element={<IncomingLetterDetail />} />
           <Route path="/outgoing-letters/:id" element={<OutgoingLetterDetail />} />
         </Route>
+
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );
