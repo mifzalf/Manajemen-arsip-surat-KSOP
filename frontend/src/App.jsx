@@ -11,6 +11,11 @@ import IncomingLetterDetail from "./pages/IncomingLetter/IncomingLetterDetail";
 import OutgoingLetterDetail from "./pages/OutgoingLetter/OutgoingLetterDetail";
 import SignIn from "./pages/AuthPages/SignIn";
 import Settings from "./pages/Settings";
+import ClassificationManagement from "./pages/master/ClassificationManagement";
+import UserManagement from "./pages/master/UserManagement";
+import UserAddForm from "./pages/master/UserAddForm";
+import ClassificationForm from "./pages/master/ClassificationForm";
+import ActivityLog from "./pages/master/ActivityLog";
 
 function App() {
   return (
@@ -26,7 +31,12 @@ function App() {
           <Route path="/profile" element={<UserProfiles />} />
           <Route path="/incoming-letters/:id" element={<IncomingLetterDetail />} />
           <Route path="/outgoing-letters/:id" element={<OutgoingLetterDetail />} />
-          <Route path="/settings" element={<Settings />} /> 
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/master/classification" element={<ClassificationManagement />} />
+          <Route path="/master/classification/add" element={<ClassificationForm />} />
+          <Route path="/master/users" element={<UserManagement />} />
+          <Route path="/master/users/add" element={<UserAddForm />} />
+          <Route path="/master/activity-log" element={<ActivityLog />} />
         </Route>
         <Route path="/signin" element={<SignIn />} />
       </Routes>

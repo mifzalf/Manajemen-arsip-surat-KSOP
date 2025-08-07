@@ -36,6 +36,7 @@ const AppSidebar = () => {
       subItems: [
         { name: 'Kelola Klasifikasi', path: '/master/classification' },
         { name: 'Kelola Pengguna', path: '/master/users' },
+        { name: 'Pemantauan Kegiatan', path: '/master/activity-log' },
       ],
     },
   ];
@@ -89,7 +90,7 @@ const AppSidebar = () => {
           <img
             src="/images/logo/kementrianperhubungan.png"
             alt="KSOP Logo"
-            className="h-8 w-auto"
+            className="h-12 w-auto"
           />
           {isSidebarWide && (
             <span className="text-xl font-bold text-gray-800">
@@ -141,7 +142,7 @@ const AppSidebar = () => {
                           <ul className="mt-2 ml-9 space-y-1">
                             {item.subItems.map(subItem => (
                               <li key={subItem.name}>
-                                <Link to={subItem.path} className={`menu-dropdown-item ${isActive(subItem.path) ? 'text-blue-600' : 'text-gray-700 hover:bg-gray-100'}`}>
+                                <Link to={subItem.path} className={`menu-dropdown-item ${isActive(subItem.path) ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'}`}>
                                   {subItem.name}
                                 </Link>
                               </li>

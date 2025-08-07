@@ -4,6 +4,7 @@ import PageMeta from "../components/common/PageMeta";
 import Label from '../components/form/Label';
 import InputField from '../components/form/InputField';
 import Button from '../components/ui/Button';
+import FileInput from '../components/form/FileInput';
 
 const Settings = () => {
   const [userInfo, setUserInfo] = useState({
@@ -11,6 +12,7 @@ const Settings = () => {
     username: 'budisan',
     email: 'budi.santoso@example.com',
     phone: '+62 812 3456 7890',
+    photo: null,
   });
 
   const [passwords, setPasswords] = useState({
@@ -20,6 +22,10 @@ const Settings = () => {
 
   const handleInfoChange = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    setUserInfo({ ...userInfo, photo: e.target.files[0] });
   };
 
   const handlePasswordChange = (e) => {
@@ -65,6 +71,10 @@ const Settings = () => {
               <div className="sm:col-span-2">
                 <Label htmlFor="phone">Nomor Telepon</Label>
                 <InputField id="phone" name="phone" type="tel" value={userInfo.phone} onChange={handleInfoChange} />
+              </div>
+              <div className="sm:col-span-2">
+                <Label htmlFor="photo">Foto Profil</Label>
+                <FileInput id="photo" name="photo" onChange={handleFileChange} />
               </div>
             </div>
             <div className="flex justify-end">
