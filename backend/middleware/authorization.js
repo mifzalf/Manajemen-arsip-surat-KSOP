@@ -12,7 +12,7 @@ const adminAuthorization = async (req, res, next) => {
         console.log(error)
         return res.status(500).json({ msg: "terjadi kesalahan pada middleware" })
     }
-}
+} 
 
 const userAuthorization = async (req, res, next) => {
     try {
