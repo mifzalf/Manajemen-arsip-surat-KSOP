@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/common/SearchBar';
 import Button from '../../components/ui/Button';
-import ClassificationTable from '../../components/ClassificationTable';
+import ClassificationTable from '../../components/table/ClassificationTable';
 
 const dummyClassifications = [
   { id: 1, kode: 'P', klasifikasi: 'Penting' },

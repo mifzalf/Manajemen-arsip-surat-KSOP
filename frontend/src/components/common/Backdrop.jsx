@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSidebar } from '../context/SidebarContext';
+import { useSidebar } from '../../context/SidebarContext';
 
 const Backdrop = () => {
   const { isMobileOpen, toggleMobileSidebar } = useSidebar();

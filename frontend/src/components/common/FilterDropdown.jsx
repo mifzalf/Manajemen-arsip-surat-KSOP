@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { ChevronDownIcon, CheckLineIcon } from '../icons';
+import { ChevronDownIcon, CheckLineIcon } from '../../icons';
 
 const FilterDropdown = ({ options, selectedValue, setSelectedValue, placeholder }) => {
   const selectedLabel = options.find(option => option === selectedValue) || placeholder || 'Pilih Opsi';

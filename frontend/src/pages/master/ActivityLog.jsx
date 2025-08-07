@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import SearchBar from '../../components/SearchBar';
-import ActivityLogTable from '../../components/ActivityLogTable';
+import SearchBar from '../../components/common/SearchBar';
+import ActivityLogTable from '../../components/table/ActivityLogTable';
 import InputField from '../../components/form/InputField';
 
 const dummyLogs = [

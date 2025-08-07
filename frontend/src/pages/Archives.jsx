@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import LetterTable from '../components/LetterTable';
-import SearchBar from '../components/SearchBar';
-import FilterDropdown from '../components/FilterDropdown';
+import LetterTable from '../components/table/LetterTable';
+import SearchBar from '../components/common/SearchBar';
+import FilterDropdown from '../components/common/FilterDropdown';
 import InputField from '../components/form/InputField';
 
 const dummyAllLetters = [

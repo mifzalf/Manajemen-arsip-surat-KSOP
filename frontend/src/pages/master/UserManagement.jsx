@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/common/SearchBar';
 import Button from '../../components/ui/Button';
-import UserTable from '../../components/UserTable';
-import FilterDropdown from '../../components/FilterDropdown';
+import UserTable from '../../components/table/UserTable';
+import FilterDropdown from '../../components/common/FilterDropdown';
 
 const dummyUsers = [
   { id: 1, name: 'Budi Santoso', username: 'budisan', email: 'budi.santoso@example.com', role: 'Admin', jabatan: 'Kepala Bagian', phone: '+62 812 3456 7890', photo: '/images/user/owner.jpg'},

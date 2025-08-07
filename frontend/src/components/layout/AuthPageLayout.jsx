@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GridShape from "../components/common/GridShape";
+import GridShape from "../common/GridShape";
 
 export default function AuthLayout({ children }) {
   return (

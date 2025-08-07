@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useSidebar } from '../context/SidebarContext';
-import SidebarWidget from '../components/SidebarWidget';
+import { useSidebar } from '../../context/SidebarContext';
+import SidebarWidget from './SidebarWidget';
 import {
   GridIcon,
   EnvelopeIcon,
@@ -9,7 +9,7 @@ import {
   ChevronDownIcon,
   HorizontaLDots,
   UserIcon,
-} from '../icons';
+} from '../../icons';
 
 const AppSidebar = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Button from '../../components/ui/Button';
-import LetterTable from '../../components/LetterTable';
-import SearchBar from '../../components/SearchBar';
+import LetterTable from '../../components/table/LetterTable';
+import SearchBar from '../../components/common/SearchBar';
 
 const dummyLetters = [
   { id: 1, recipient: 'PT. Mitra Jaya', letterNumber: '001/P/KSOP-K/6/2024', letterDate: '2024-06-10', summary: 'Pengiriman proposal kerja sama', classification: 'Penting', remarks: 'Menunggu balasan'},

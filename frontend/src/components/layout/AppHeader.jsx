@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSidebar } from '../context/SidebarContext';
-import UserDropdown from '../components/header/UserDropdown';
+import { useSidebar } from '../../context/SidebarContext';
+import UserDropdown from './UserDropdown';
 
 const AppHeader = () => {
   const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();

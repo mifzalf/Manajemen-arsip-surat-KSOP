@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { Dropdown } from './ui/dropdown/Dropdown';
-import { DropdownItem } from './ui/dropdown/DropdownItem';
-import { MoreDotIcon } from '../icons';
+import { Dropdown } from '../ui/dropdown/Dropdown';
+import { DropdownItem } from '../ui/dropdown/DropdownItem';
+import { MoreDotIcon } from '../../icons';
 
 const ActionDropdown = ({ onEdit, onDelete }) => {
   const [isOpen, setIsOpen] = useState(false);
