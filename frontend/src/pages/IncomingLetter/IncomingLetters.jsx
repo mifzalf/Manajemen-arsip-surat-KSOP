@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../../components/ui/Button';
 import LetterTable from '../../components/LetterTable';
 import SearchBar from '../../components/SearchBar';
-import Button from '../../components/ui/Button';
 
 const dummyLetters = [
   { id: 1, agendaId: 'AGD-001', sender: 'PT. Sejahtera Abadi', letterNumber: '123/SA/VI/2024', letterDate: '2024-06-01', receivedDate: '2024-06-02', summary: 'Surat undangan rapat koordinasi', classification: 'Penting', remarks: 'Segera proses'},
@@ -31,7 +30,7 @@ const IncomingLetters = () => {
         <div className="border-b border-gray-200 p-4">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Cari nomor surat, pengirim, ringkasan..." />
         </div>
-        <LetterTable letters={filteredLetters} detailPagePath="/incoming-letters" showSenderColumn={true} />
+        <LetterTable letters={filteredLetters} pageType="incoming" />
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ const Archives = () => {
 
       <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
         <div className="grid grid-cols-1 items-end gap-4 border-b border-gray-200 p-4 md:grid-cols-2 lg:grid-cols-3">
-          <div className="lg:col-span-3">
+          <div className="md:col-span-2 lg:col-span-3">
             <SearchBar 
               searchTerm={filters.searchTerm} 
               setSearchTerm={(value) => handleFilterChange('searchTerm', value)} 

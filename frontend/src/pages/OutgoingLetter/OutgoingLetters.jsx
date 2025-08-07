@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../../components/ui/Button';
 import LetterTable from '../../components/LetterTable';
 import SearchBar from '../../components/SearchBar';
-import Button from '../../components/ui/Button';
 
 const dummyLetters = [
   { id: 1, recipient: 'PT. Mitra Jaya', letterNumber: '001/P/KSOP-K/6/2024', letterDate: '2024-06-10', summary: 'Pengiriman proposal kerja sama', classification: 'Penting', remarks: 'Menunggu balasan'},
@@ -30,7 +29,7 @@ const OutgoingLetters = () => {
         <div className="border-b border-gray-200 p-4">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Cari nomor surat, tujuan, ringkasan..." />
         </div>
-        <LetterTable letters={filteredLetters} detailPagePath="/outgoing-letters" showRecipientColumn={true} />
+        <LetterTable letters={filteredLetters} pageType="outgoing" />
       </div>
     </div>
   );
